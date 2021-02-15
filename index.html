@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Get user location</title>
+</head>
+<body>
+    <p>Hello there, your current location will be identified here</p>
+    <button onclick="getLocationOfPosition()">get location</button>
+    <hr/>
+    <p id="theCoords" /></p>
+    <script>
+        function getLocationOfPosition(){
+            if(navigator.geolocation){
+                navigator.geolocation.getCurrentPosition(function(position){
+                    document.getElementById("theCoords").innerHTML ="latitude : "+ position.coords.latitude+" \nlongitude : "+position.coords.longitude;
+                    // console.log(position);
+                });
+            }
+            else{
+                alert("geo location is not supported");
+            }
+        }
+    </script>
+    
+</body>
+</html>
